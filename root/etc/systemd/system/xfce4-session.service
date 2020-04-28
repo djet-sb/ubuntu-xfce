@@ -1,0 +1,14 @@
+[Unit]
+Description=xfce4-session
+After=xephyr.service
+Requires=xephyr.service
+
+[Service]
+Environment="DISPLAY=:10"
+ExecStart=/usr/bin/xfce4-session
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=default.target
+

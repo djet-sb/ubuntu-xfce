@@ -1,0 +1,10 @@
+[Unit]
+Description=init persistent
+
+[Service]
+ExecStart=/usr/share/system-scripts/init.persistent start
+Type=forking
+
+[Install]
+WantedBy=default.target
+

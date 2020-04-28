@@ -1,0 +1,20 @@
+#!/bin/sh
+start() {
+   echo "Initialization persistent storage"
+   [ -d /home ] && [ -L /home ] && return 0
+   
+   if [ -d /persistent ]
+   then
+      rm -rf /home
+      ln -s /persistent /home 
+   fi
+}
+
+case $1 in
+  start)
+    start
+  ;;
+  *)
+      echo "[?] Use ./system [start]"
+  ;;
+esac

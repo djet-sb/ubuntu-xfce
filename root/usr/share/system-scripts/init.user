@@ -1,0 +1,39 @@
+#!/bin/sh
+USER=user
+TEMPLATE_DIR=/usr/share/shapre-os/user-template
+TEMPLATE_FILE="wallpaper.jpg .zshrc .oh-my-zsh .Xdefaults"
+
+create_user() {
+   getent passwd $USER 
+   if [ $? -eq 0 ]; then
+     echo "   ! user exists"
+   else
+     useradd -ms /bin/zsh $USER	   
+     [ ! -z /home/$USER ] || mkdir -p /home/$USER && chown -R ${USER}. /home/$USER
+     [ -f /etc/sudoers.d/$USER ] || (echo "$USER  ALL=(ALL)  NOPASSWD: ALL" > /etc/sudoers.d/$USER)
+   fi
+}
+
+apply_template() {
+  [ -f /home/$USER/.skeep_apply_user_template ] && return 0
+
+  for FILE in $TEMPLATE_FILE
+   do
+     cp -r $TEMPLATE_DIR/$FILE /home/$USER/$FILE
+   done
+   touch /home/$USER/.skeep_apply_user_template
+   chown -R ${USER}. /home/$USER
+}
+
+start() {
+        create_user
+        apply_template
+}
+case $1 in
+  start)
+    start
+  ;;
+  *)
+      echo "[?] Use ./init.user [start]"
+  ;;
+esac

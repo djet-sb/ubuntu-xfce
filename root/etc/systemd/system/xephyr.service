@@ -1,0 +1,13 @@
+[Unit]
+Description=Xephyr
+After=init-user.service
+Requires=init-user.service
+
+[Service]
+ExecStart=/usr/share/system-scripts/Xephyr start
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=default.target
+
