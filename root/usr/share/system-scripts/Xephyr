@@ -12,7 +12,9 @@ start() {
         then 
          PARAM="-fullscreen $PARAM"
         fi
-        su -p  -c "/usr/bin/Xephyr $PARAM :10" user
+
+	/usr/bin/Xephyr $PARAM :10
+
 }
 
 case $1 in

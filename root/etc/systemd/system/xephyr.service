@@ -4,10 +4,11 @@ After=init-user.service
 Requires=init-user.service
 
 [Service]
-ExecStart=/usr/share/system-scripts/Xephyr start
+ExecStart=/usr/bin/Xephyr -sync -name Ubuntu-xfce4 -fullscreen  :10
+Environment="DISPLAY=:0"
 Restart=always
-RestartSec=10
-
+User=user
+Group=user
 [Install]
 WantedBy=default.target
 

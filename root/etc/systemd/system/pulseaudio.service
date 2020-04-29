@@ -1,0 +1,13 @@
+[Unit]
+Description=dbus
+After=init-user.service
+Requires=init-user.service
+
+[Service]
+ExecStart=/usr/bin/pulseaudio
+User=user
+Group=user
+
+[Install]
+WantedBy=default.target
+

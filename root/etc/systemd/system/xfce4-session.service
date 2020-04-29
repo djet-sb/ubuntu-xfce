@@ -7,8 +7,8 @@ Requires=xephyr.service
 Environment="DISPLAY=:10"
 ExecStart=/usr/bin/xfce4-session
 Restart=always
-RestartSec=10
-
+User=user
+Group=user
 [Install]
 WantedBy=default.target
 

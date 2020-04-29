@@ -1,7 +1,6 @@
 #!/bin/sh
 USER=user
-TEMPLATE_DIR=/usr/share/shapre-os/user-template
-TEMPLATE_FILE="wallpaper.jpg .zshrc .oh-my-zsh .Xdefaults"
+TEMPLATE_DIR=/usr/share/system-template
 
 create_user() {
    getent passwd $USER 
@@ -17,10 +16,7 @@ create_user() {
 apply_template() {
   [ -f /home/$USER/.skeep_apply_user_template ] && return 0
 
-  for FILE in $TEMPLATE_FILE
-   do
-     cp -r $TEMPLATE_DIR/$FILE /home/$USER/$FILE
-   done
+   cp -r $TEMPLATE_DIR/$USER /home/
    touch /home/$USER/.skeep_apply_user_template
    chown -R ${USER}. /home/$USER
 }
