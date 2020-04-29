@@ -10,20 +10,17 @@ RUN apt-get update; apt-get -y install --no-install-recommends  \
        pavucontrol \
        pulseaudio \
        sudo \
-       vim \
-       zsh  
-RUN apt-get -y install  dbus-x11
-#Personal
-RUN apt-get -y install wget sassc git
-RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
-     && apt-get install -y ./google-chrome-stable_current_amd64.deb \
-     && rm google-chrome-stable_current_amd64.deb
+       vim 
+RUN apt-get -y install \
+       dbus-x11 \ 
+       wget \
+       sassc \
+       git
 RUN git clone https://github.com/nana-4/materia-theme.git \
      && cd materia-theme \
      && ./install.sh \
      && cd .. \
      && rm -rf materia-theme
-
 COPY root/ /
 RUN ln -sf /etc/systemd/system/container.target /etc/systemd/system/default.target \
     && systemctl enable  \

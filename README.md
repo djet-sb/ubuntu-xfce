@@ -1,5 +1,5 @@
 ```
-docker build -t ubuntu-xfce .
+docker build -t bres/ubuntu-xfce4 .
 ```
 
 ```
@@ -13,6 +13,6 @@ docker run -d \
   -e FULLSCREEN=true \
   --privileged \
   --ipc host \
-  ubuntu-xfce
+  bres/ubuntu-xfce4
 ```
 

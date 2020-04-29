@@ -7,7 +7,7 @@ create_user() {
    if [ $? -eq 0 ]; then
      echo "   ! user exists"
    else
-     useradd -ms /bin/zsh $USER	   
+     useradd -ms /bin/bash $USER	   
      [ ! -z /home/$USER ] || mkdir -p /home/$USER && chown -R ${USER}. /home/$USER
      [ -f /etc/sudoers.d/$USER ] || (echo "$USER  ALL=(ALL)  NOPASSWD: ALL" > /etc/sudoers.d/$USER)
    fi
