@@ -44,7 +44,7 @@
       <property name="enter-opacity" type="uint" value="100"/>
       <property name="background-style" type="uint" value="0"/>
       <property name="icon-size" type="uint" value="0"/>
-      <property name="leave-opacity" type="uint" value="48"/>
+      <property name="leave-opacity" type="uint" value="80"/>
     </property>
   </property>
   <property name="plugins" type="empty">
