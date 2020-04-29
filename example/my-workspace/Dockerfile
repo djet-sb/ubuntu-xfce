@@ -8,6 +8,11 @@ RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.d
 RUN apt-get update; apt-get -y install --no-install-recommends telegram-desktop
 #Install vscode
 RUN apt-get update; apt-get -y install --no-install-recommends curl gpg  \
-    && echo "deb [arch=amd64] http://packages.microsoft.com/repos/vscode stable main" | tee /etc/apt/sources.list.d/vs-code.list \
+    && echo "deb [arch=amd64] http://packages.microsoft.com/repos/vscode stable main" | tee /etc/apt/sources.list.d/vscode.list \
     && curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > /etc/apt/trusted.gpg.d/microsoft.gpg \ 
     && apt-get update; apt-get -y install code
+#Install enpass
+RUN echo "deb https://apt.enpass.io/ stable main" > /etc/apt/sources.list.d/enpass.list \
+    && wget -O - https://apt.enpass.io/keys/enpass-linux.key | apt-key add - \
+    && apt-get update && apt-get install -y enpass
+COPY root/ /

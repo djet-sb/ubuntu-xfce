@@ -37,6 +37,7 @@
         <value type="int" value="20"/>
         <value type="int" value="7"/>
         <value type="int" value="9"/>
+        <value type="int" value="10"/>
       </property>
       <property name="mode" type="uint" value="0"/>
       <property name="length" type="uint" value="1"/>
@@ -62,12 +63,14 @@
     <property name="plugin-6" type="string" value="systray">
       <property name="show-frame" type="bool" value="false"/>
       <property name="square-icons" type="bool" value="true"/>
+      <property name="names-ordered" type="array">
+        <value type="string" value="enpass"/>
+      </property>
     </property>
     <property name="plugin-8" type="string" value="pulseaudio">
       <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
       <property name="show-notifications" type="bool" value="true"/>
     </property>
-    <property name="plugin-10" type="string" value="notification-plugin"/>
     <property name="plugin-11" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
     </property>
@@ -104,6 +107,11 @@
     <property name="plugin-9" type="string" value="launcher">
       <property name="items" type="array">
         <value type="string" value="15881904071.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-10" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="15881926001.desktop"/>
       </property>
     </property>
   </property>
